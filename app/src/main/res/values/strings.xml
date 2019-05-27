@@ -1,0 +1,122 @@
+<resources>
+    <string name="description">Asian Dramas and Movies in italian!</string>
+    <string name="welcome">Welcome to DramaItalia!</string>
+    <string name="welcome_description">This is DramaItalia\'s official application :)</string>
+    <string name="tutorial">Press this button to choose from all the different categories available.</string>
+    <string name="app">App</string>
+    <string name="version">Version</string>
+    <string name="instructions">Navigate through all categories to switch between Dramas, Films, Updates and more!</string>
+    <string name="other_info">More info, preferences and contacts are available in Settings page.</string>
+
+    <string name="feedback">Feedback</string>
+    <string name="feedback_summary">Opinions? Suggestions? Help us improve the app!</string>
+    <string name="feedback_send">Send feedback&#8230;</string>
+    <string name="feedback_subject">DramaItalia Feedback</string>
+    <string name="feedback_intro">Dear developer,\n\n</string>
+
+    <string name="home">Home</string>
+    <string name="dramas">Dramas</string>
+    <string name="films">Films</string>
+    <string name="contacts">Contacts</string>
+    <string name="information">Information</string>
+    <string name="info">Info</string>
+    <string name="licenses">Licenses</string>
+    <string name="developer">Developer</string>
+    <string name="send">Send</string>
+
+    <string name="by">By:&#160;</string>
+    <string name="loading">Loading&#8230;</string>
+    <string name="no_connection">No internet connection found!\n\nPlease connect to the internet and try again.</string>
+    <string name="press_to_exit">Press again to exit</string>
+    <string name="search">Search</string>
+    <string name="sort_by">Sort by</string>
+    <string name="sort_by_title">Sort by title</string>
+    <string name="sort_by_date">Sort by date</string>
+    <string name="episode">Episode:&#160;</string>
+    <string name="episodes">Episodes:&#160;</string>
+    <string name="genre">Genre:&#160;</string>
+    <string name="error_loading">An error occurred while loading!</string>
+    <string name="no_link_found">No link found!</string>
+    <string name="loading_documents">Please wait while loading documents&#8230;</string>
+    <string name="contact_us">Contact us</string>
+    <string name="contact_us_summary">Contact us</string>
+    <string name="error_network_timeout">Network timeout error.</string>
+
+    <string name="latest_released">Latest released</string>
+    <string name="latest_announced">Latest announced</string>
+    <string name="latest_completed">Latest completed</string>
+    <string name="announced_2017">Announced on 2017</string>
+    <string name="announced_2016">Announced on 2016</string>
+
+    <string name="korean_dramas">Korean</string>
+    <string name="japanese_dramas">Japanese</string>
+    <string name="other_dramas">Chinese and others</string>
+
+    <string name="korean_films">Korean</string>
+    <string name="japanese_films">Japanese</string>
+    <string name="other_films">Chinese and others</string>
+
+    <string name="status">Status:&#160;</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+
+    <!-- preferences -->
+    <string name="title_website">Official website</string>
+    <string name="summary_website">Visit official DramaItalia website!</string>
+    <string name="title_email">Write an e-mail</string>
+
+    <string name="category_general">General</string>
+    <string name="title_load_documents_at_boot">Load documents when opened</string>
+    <string name="summary_load_documents_at_boot">Load all documents when the app is runned</string>
+    <string name="title_show_animations">Show animations</string>
+    <string name="summary_show_animations">Show or hide fade effects</string>
+
+
+    <!-- ================ NOT TRANSLATABLE ================ -->
+    <string name="app_name" translatable="false">DramaItalia</string>
+    <string name="author_name" translatable="false">Andrei Conache</string>
+    <string name="developer_email" translatable="false">conache.and@gmail.com</string>
+
+    <!-- settings keys -->
+    <string name="key_website" translatable="false">website</string>
+    <string name="key_email" translatable="false">email</string>
+    <string name="key_author" translatable="false">author</string>
+    <string name="key_version" translatable="false">version</string>
+    <string name="key_feedback" translatable="false">feedback</string>
+    <string name="key_load_documents_at_boot" translatable="false">load_documents_at_boot</string>
+    <string name="key_show_animations" translatable="false">show_animations</string>
+
+    <!-- volley -->
+    <string name="volley_title" translatable="false">Volley</string>
+    <string name="volley_author" translatable="false">Copyright &#169; 2011, The Android Open Source Project</string>
+    <string name="volley_license" translatable="false">Apache License 2.0</string>
+    <string name="volley_link" translatable="false">https://github.com/google/volley/blob/master/LICENSE</string>
+
+    <!-- jsoup -->
+    <string name="jsoup_title" translatable="false">jsoup: Java HTML Parser</string>
+    <string name="jsoup_author" translatable="false">Copyright &#169; 2009 - 2017, Jonathan Hedley</string>
+    <string name="jsoup_license" translatable="false">The MIT License</string>
+    <string name="jsoup_link" translatable="false">https://jsoup.org/license</string>
+
+    <!-- taptargetview -->
+    <string name="taptargetview_title" translatable="false">TapTargetView</string>
+    <string name="taptargetview_author" translatable="false">Copyright &#169; 2016, Keepsafe Software Inc.</string>
+    <string name="taptargetview_license" translatable="false">Apache License 2.0</string>
+    <string name="taptargetview_link" translatable="false">https://github.com/KeepSafe/TapTargetView/blob/master/LICENSE</string>
+
+    <!-- materialdesign icons -->
+    <string name="materialdesignicons_title" translatable="false">MaterialDesign Icons</string>
+    <string name="materialdesignicons_author" translatable="false">Copyright &#169; 2014, Austin Andrews</string>
+    <string name="materialdesignicons_license" translatable="false">SIL Open Font License 1.1</string>
+    <string name="materialdesignicons_link" translatable="false">https://github.com/Templarian/MaterialDesign/blob/master/LICENSE</string>
+
+    <!-- flaticon -->
+    <string name="flaticon_title" translatable="false">Icons designed by Freepik from Flaticon</string>
+    <string name="flaticon_author" translatable="false">Copyright &#169; 2016, Freepik</string>
+    <string name="flaticon_license" translatable="false">Flaticon Basic License</string>
+    <string name="flaticon_link" translatable="false">https://file000.flaticon.com/downloads/license/license.pdf</string>
+</resources>

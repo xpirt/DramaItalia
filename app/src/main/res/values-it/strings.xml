@@ -1,0 +1,77 @@
+<resources>
+    <string name="description">Drama e Film asiatici in italiano!</string>
+    <string name="welcome">Benvenuto su DramaItalia!</string>
+    <string name="welcome_description">Questa è l\'applicazione ufficiale di DramaItalia :)</string>
+    <string name="tutorial">Premi questo pulsante per navigare tra le diverse categorie.</string>
+    <string name="app">Applicazione</string>
+    <string name="version">Versione</string>
+    <string name="instructions">Naviga tra le diverse categorie per visualizzare Drama, Film, Aggiornamenti e molto altro!</string>
+    <string name="other_info">Informazioni, preferenze e contatti sono disponibili nelle Impostazioni.</string>
+
+    <string name="feedback">Feedback</string>
+    <string name="feedback_summary">Pareri? Suggerimenti? Aiutaci a migliorare l\'app!</string>
+    <string name="feedback_send">Invia feedback&#8230;</string>
+    <string name="feedback_subject">DramaItalia Feedback</string>
+    <string name="feedback_intro">Caro sviluppatore,\n\n</string>
+
+    <string name="home">Home</string>
+    <string name="dramas">Drama</string>
+    <string name="films">Film</string>
+    <string name="contacts">Contatti</string>
+    <string name="information">Informazioni</string>
+    <string name="info">Info</string>
+    <string name="licenses">Licenze</string>
+    <string name="developer">Sviluppatore</string>
+    <string name="send">Invia</string>
+
+    <string name="by">Da:&#160;</string>
+    <string name="loading">Caricamento in corso&#8230;</string>
+    <string name="no_connection">Nessuna connessione a Internet :(\n\nTi preghiamo di conetterti a una rete prima di aprire DramaItalia.</string>
+    <string name="press_to_exit">Premi di nuovo per uscire</string>
+    <string name="search">Cerca</string>
+    <string name="sort_by">Ordina per</string>
+    <string name="sort_by_title">Ordina per titolo</string>
+    <string name="sort_by_date">Ordina per data</string>
+    <string name="episode">Episodio:&#160;</string>
+    <string name="episodes">Episodi:&#160;</string>
+    <string name="genre">Genere:&#160;</string>
+    <string name="error_loading">Si &#232; verificato un errore durante il caricamento!</string>
+    <string name="no_link_found">Nessun collegamento trovato!</string>
+    <string name="loading_documents">Caricamento pagine in corso&#8230;</string>
+    <string name="contact_us">Contattaci</string>
+    <string name="contact_us_summary">Contattaci</string>
+    <string name="error_network_timeout">Errore caricamento, connessione scaduta.</string>
+
+    <string name="latest_released">Ultime uscite</string>
+    <string name="latest_announced">Ultimi annunci</string>
+    <string name="latest_completed">Ultimi completati</string>
+    <string name="announced_2017">Annunci 2017</string>
+    <string name="announced_2016">Annunci 2016</string>
+
+    <string name="korean_dramas">Corea</string>
+    <string name="japanese_dramas">Giappone</string>
+    <string name="other_dramas">Cina e Altrasia</string>
+
+    <string name="korean_films">Corea</string>
+    <string name="japanese_films">Giappone</string>
+    <string name="other_films">Cina e Altrasia</string>
+
+    <string name="status">Stato:&#160;</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Impostazioni</string>
+    <string name="action_search">Cerca</string>
+
+    <!-- preferences -->
+    <string name="title_website">Sito ufficiale</string>
+    <string name="summary_website">Visita il sito ufficiale di DramaItalia!</string>
+    <string name="title_email">Scrivi un\'e-mail</string>
+
+    <string name="category_general">Generale</string>
+    <string name="title_load_documents_at_boot">Carica pagine all\'avvio</string>
+    <string name="summary_load_documents_at_boot">Carica tutte le pagine quando l\'app viene avviata</string>
+    <string name="title_show_animations">Mostra animazioni</string>
+    <string name="summary_show_animations">Mostra o nascondi l\'effetto dissolvenza</string>
+</resources>

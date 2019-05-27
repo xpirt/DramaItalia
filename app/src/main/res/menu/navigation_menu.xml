@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/group_main" android:checkableBehavior="single" >
+        <item
+            android:id="@+id/nav_home"
+            android:visible="false"
+            android:title="@string/home" />
+
+        <item
+            android:id="@+id/nav_latest_released"
+            android:title="@string/latest_released" />
+
+        <item
+            android:id="@+id/nav_latest_announced"
+            android:title="@string/latest_announced" />
+
+        <item
+            android:id="@+id/nav_latest_completed"
+            android:title="@string/latest_completed" />
+    </group>
+
+    <item android:title="@string/dramas">
+        <menu>
+            <group android:id="@+id/group_dramas" android:checkableBehavior="single" >
+                <item
+                    android:id="@+id/nav_japanese_dramas"
+                    android:icon="@drawable/japan_flag"
+                    android:title="@string/japanese_dramas" />
+                <item
+                    android:id="@+id/nav_korean_dramas"
+                    android:icon="@drawable/korea_flag"
+                    android:title="@string/korean_dramas" />
+                <item
+                    android:id="@+id/nav_other_dramas"
+                    android:icon="@drawable/other_flag"
+                    android:title="@string/other_dramas" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="@string/films">
+        <menu>
+            <group android:id="@+id/group_films" android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_japanese_films"
+                    android:icon="@drawable/japan_flag"
+                    android:title="@string/japanese_dramas" />
+                <item
+                    android:id="@+id/nav_korean_films"
+                    android:icon="@drawable/korea_flag"
+                    android:title="@string/korean_dramas" />
+                <item
+                    android:id="@+id/nav_other_films"
+                    android:icon="@drawable/other_flag"
+                    android:title="@string/other_dramas" />
+            </group>
+        </menu>
+    </item>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_announced_2017"
+            android:title="@string/announced_2017" />
+
+        <item
+            android:id="@+id/nav_announced_2016"
+            android:title="@string/announced_2016" />
+    </group>
+</menu>

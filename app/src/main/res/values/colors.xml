@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#895F72</color>
+    <color name="colorPrimaryDark">#5B3547</color>
+    <color name="colorAccent">#DD98B8</color>
+
+    <!-- status colors -->
+    <color name="status_completed">#4CAF50</color>
+    <color name="status_abandoned">#F44336</color>
+    <color name="status_announced">#03A9F4</color>
+    <color name="status_wip">#FF9800</color>
+
+    <color name="download_available">#4CAF50</color>
+</resources>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/headerImg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:src="@drawable/banner_new" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/home_padding">
+
+            <TextView
+                android:id="@+id/welcome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/home_title_margin_top"
+                android:layout_marginBottom="@dimen/home_title_margin_bottom"
+                android:text="@string/welcome"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/home_title" />
+
+            <TextView
+                android:id="@+id/welcome_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/welcome"
+                android:text="@string/welcome_description"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/welcome_description"
+                android:maxHeight="50dp"
+                android:paddingTop="@dimen/padding"
+                android:src="@drawable/arrow" />
+
+            <TextView
+                android:id="@+id/instructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/arrow"
+                android:text="@string/instructions"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/other"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/instructions"
+                android:layout_marginTop="@dimen/other_info_margin"
+                android:text="@string/other_info"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

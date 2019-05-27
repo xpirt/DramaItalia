@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/category_general" />
+
+        <SwitchPreference
+            android:key="@string/key_load_documents_at_boot"
+            android:title="@string/title_load_documents_at_boot"
+            android:summary="@string/summary_load_documents_at_boot"
+            android:defaultValue="true" />
+
+        <SwitchPreference
+            android:key="@string/key_show_animations"
+            android:title="@string/title_show_animations"
+            android:summary="@string/summary_show_animations"
+            android:defaultValue="true" />
+
+    <PreferenceCategory
+        android:title="@string/app_name" />
+
+        <Preference
+            android:key="@string/key_website"
+            android:title="@string/title_website"
+            android:summary="@string/summary_website" />
+
+        <Preference
+            android:key="@string/key_email"
+            android:title="@string/title_email" />
+
+    <PreferenceCategory
+        android:title="@string/app" />
+
+        <Preference
+            android:key="@string/key_author"
+            android:title="@string/developer"
+            android:summary="@string/author_name"
+            android:icon="@drawable/author" />
+
+        <Preference
+            android:key="@string/key_feedback"
+            android:title="@string/feedback"
+            android:summary="@string/feedback_summary" />
+
+        <PreferenceScreen android:title="@string/licenses">
+            <intent
+                android:targetPackage="and.conachegroup.dramaitalia"
+                android:targetClass="and.conachegroup.dramaitalia.activities.LicensesActivity" />
+        </PreferenceScreen>
+
+        <Preference
+            android:key="@string/key_version"
+            android:title="@string/version" />
+</PreferenceScreen>
