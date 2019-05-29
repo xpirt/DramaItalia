@@ -5,7 +5,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_text_vertical_spacing">8dp</dimen>
-    <dimen name="nav_header_height">164dp</dimen>
+    <dimen name="nav_header_height">172dp</dimen>
     <dimen name="nav_header_img_max_height">48dp</dimen>
 
     <dimen name="max_type_width">196dp</dimen>
