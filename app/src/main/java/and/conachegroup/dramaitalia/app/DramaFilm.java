@@ -14,16 +14,7 @@ public class DramaFilm {
 
     public int getId() { return mId; }
 
-    public void setId(int input) {
-        mId = input;
-    }
-
     public String getTitle() { return mTitle; }
 
-    public void setTitle(String input) { mTitle = input; }
-
     public String getFansub() { return mFansub; }
-
-    public void setFansub(String input) { mFansub = input; }
-
 }

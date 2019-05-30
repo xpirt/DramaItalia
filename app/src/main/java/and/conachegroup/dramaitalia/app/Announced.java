@@ -20,35 +20,17 @@ public class Announced extends LatestDramaFilm {
 
     public String getGenre() { return mGenre; }
 
-    public void setGenre(String input) {
-        mGenre = input;
-    }
-
     public String getType() {
         return mType;
     }
 
-    public void setType(String input) {
-        mType = input;
-    }
-
     public String getFansub() { return mFansub; }
-
-    public void setFansub(String input) { mFansub = input; }
 
     public String getCountry() {
         return mCountry;
     }
 
-    public void setCountry(String input) {
-        mCountry = input;
-    }
-
     public String getLink() {
         return mLink;
-    }
-
-    public void setLink(String input) {
-        mLink = input;
     }
 }

@@ -18,28 +18,13 @@ public class LatestReleased extends LatestDramaFilm {
 
     public String getEpisode() { return mEpisode; }
 
-    public void setEpisode(String input) {
-        mEpisode = input;
-    }
-
     public String getType() {
         return mType;
-    }
-
-    public void setType(String input) {
-        mType = input;
     }
 
     public String getCountry() {
         return mCountry;
     }
 
-    public void setCountry(String input) {
-        mCountry = input;
-    }
-
     public String getFansub() { return mFansub; }
-
-    public void setFansub(String input) { mFansub = input; }
-
 }

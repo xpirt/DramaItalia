@@ -7,17 +7,18 @@ public interface Constants {
     String AUTHOR_LINKEDIN_URL = "https://www.linkedin.com/in/andrei-conache";
 
     // pages
-    String URL_LATEST_RELEASED = DRAMAITALIA_URL + "/Ultime_uscite";
-    String URL_LATEST_ANNOUNCED = DRAMAITALIA_URL + "/Ultimi_annunci";
-    String URL_LATEST_COMPLETED = DRAMAITALIA_URL + "/Ultimi_completati";
-    String URL_DRAMA_JAPAN = DRAMAITALIA_URL + "/Drama_Giappone";
-    String URL_DRAMA_KOREA = DRAMAITALIA_URL + "/Drama_Corea";
-    String URL_DRAMA_OTHER = DRAMAITALIA_URL + "/Drama_Cina_e_Altrasia";
-    String URL_FILM_JAPAN = DRAMAITALIA_URL + "/Film_Giappone";
-    String URL_FILM_KOREA = DRAMAITALIA_URL + "/Film_Corea";
-    String URL_FILM_OTHER = DRAMAITALIA_URL + "/Film_Cina_e_Altrasia";
-    String URL_ANNOUNCED_2017 = DRAMAITALIA_URL + "/Annunci_2017";
-    String URL_ANNOUNCED_2016 = DRAMAITALIA_URL + "/Annunci_2016";
+    String BASE_URL = "https://dramaitalia.fandom.com/it/wiki";
+    String URL_LATEST_RELEASED = BASE_URL + "/Ultime_uscite";
+    String URL_LATEST_ANNOUNCED = BASE_URL + "/Ultimi_annunci";
+    String URL_LATEST_COMPLETED = BASE_URL + "/Ultimi_completati";
+    String URL_DRAMA_JAPAN = BASE_URL + "/Drama_Giappone";
+    String URL_DRAMA_KOREA = BASE_URL + "/Drama_Corea";
+    String URL_DRAMA_OTHER = BASE_URL + "/Drama_Cina_e_Altrasia";
+    String URL_FILM_JAPAN = BASE_URL + "/Film_Giappone";
+    String URL_FILM_KOREA = BASE_URL + "/Film_Corea";
+    String URL_FILM_OTHER = BASE_URL + "/Film_Cina_e_Altrasia";
+    String URL_ANNOUNCED_2017 = BASE_URL + "/Annunci_2017";
+    String URL_ANNOUNCED_2016 = BASE_URL + "/Annunci_2016";
 
     // status strings
     String ANNOUNCED = "Annunciato";

@@ -56,20 +56,18 @@ public class LatestAnnouncedFragment extends Fragment implements SearchView.OnQu
         mRecyclerView = view.findViewById(and.conachegroup.dramaitalia.R.id.list);
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener(){
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
             }
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                if (recyclerView != null) {
-                    int topRowVerticalPosition = 0;
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                int topRowVerticalPosition = 0;
 
-                    if (recyclerView.getChildCount() != 0) {
-                        topRowVerticalPosition = recyclerView.getChildAt(0).getTop();
-                    }
-
-                    mSwipeLayout.setEnabled(topRowVerticalPosition >= 0);
+                if (recyclerView.getChildCount() != 0) {
+                    topRowVerticalPosition = recyclerView.getChildAt(0).getTop();
                 }
+
+                mSwipeLayout.setEnabled(topRowVerticalPosition >= 0);
             }
         });
         mRecyclerView.setHasFixedSize(true);
@@ -170,8 +168,8 @@ public class LatestAnnouncedFragment extends Fragment implements SearchView.OnQu
             mLatestAnnouncedList = latestAnnouncedList;
         }
 
-        @Override
-        public LatestAnnouncedAdapter.LatestAnnouncedViewHolder onCreateViewHolder(ViewGroup parent,
+        @Override @NonNull
+        public LatestAnnouncedAdapter.LatestAnnouncedViewHolder onCreateViewHolder(@NonNull ViewGroup parent,
                                                                                    int viewType) {
             View view = LayoutInflater.from(mContext).inflate(and.conachegroup.dramaitalia.R.layout.announced_list_item,
                     parent, false);
@@ -179,7 +177,7 @@ public class LatestAnnouncedFragment extends Fragment implements SearchView.OnQu
         }
 
         @Override
-        public void onBindViewHolder(LatestAnnouncedAdapter.LatestAnnouncedViewHolder holder,
+        public void onBindViewHolder(@NonNull LatestAnnouncedAdapter.LatestAnnouncedViewHolder holder,
                                      int position) {
             final Announced item = getItem(position);
 

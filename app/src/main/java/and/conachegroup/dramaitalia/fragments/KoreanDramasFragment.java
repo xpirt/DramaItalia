@@ -52,21 +52,19 @@ public class KoreanDramasFragment extends Fragment implements SearchView.OnQuery
         mRecyclerView = view.findViewById(R.id.list);
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener(){
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
             }
 
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                if (recyclerView != null) {
-                    int topRowVerticalPosition = 0;
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                int topRowVerticalPosition = 0;
 
-                    if (recyclerView.getChildCount() != 0) {
-                        topRowVerticalPosition = recyclerView.getChildAt(0).getTop();
-                    }
-
-                    mSwipeLayout.setEnabled(topRowVerticalPosition >= 0);
+                if (recyclerView.getChildCount() != 0) {
+                    topRowVerticalPosition = recyclerView.getChildAt(0).getTop();
                 }
+
+                mSwipeLayout.setEnabled(topRowVerticalPosition >= 0);
             }
         });
         mRecyclerView.setHasFixedSize(true);
@@ -164,8 +162,8 @@ public class KoreanDramasFragment extends Fragment implements SearchView.OnQuery
             mKoreanDramaList = koreanDramasList;
         }
 
-        @Override
-        public KoreanDramasAdapter.KoreanDramaViewHolder onCreateViewHolder(ViewGroup parent,
+        @Override @NonNull
+        public KoreanDramasAdapter.KoreanDramaViewHolder onCreateViewHolder(@NonNull ViewGroup parent,
                                                                             int viewType) {
             View view =
                     LayoutInflater.from(mContext).inflate(R.layout.drama_list_item, parent, false);
@@ -173,7 +171,7 @@ public class KoreanDramasFragment extends Fragment implements SearchView.OnQuery
         }
 
         @Override
-        public void onBindViewHolder(KoreanDramasAdapter.KoreanDramaViewHolder holder,
+        public void onBindViewHolder(@NonNull KoreanDramasAdapter.KoreanDramaViewHolder holder,
                                      int position) {
             final KoreanDrama item = getItem(position);
 

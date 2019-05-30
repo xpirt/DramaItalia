@@ -51,21 +51,19 @@ public class KoreanFilmsFragment extends Fragment implements SearchView.OnQueryT
         mRecyclerView = view.findViewById(R.id.list);
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener(){
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
             }
 
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                if (recyclerView != null) {
-                    int topRowVerticalPosition = 0;
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                int topRowVerticalPosition = 0;
 
-                    if (recyclerView.getChildCount() != 0) {
-                        topRowVerticalPosition = recyclerView.getChildAt(0).getTop();
-                    }
-
-                    mSwipeLayout.setEnabled(topRowVerticalPosition >= 0);
+                if (recyclerView.getChildCount() != 0) {
+                    topRowVerticalPosition = recyclerView.getChildAt(0).getTop();
                 }
+
+                mSwipeLayout.setEnabled(topRowVerticalPosition >= 0);
             }
         });
         mRecyclerView.setHasFixedSize(true);
@@ -162,8 +160,8 @@ public class KoreanFilmsFragment extends Fragment implements SearchView.OnQueryT
             mKoreanFilmList = koreanFilmsList;
         }
 
-        @Override
-        public KoreanFilmsAdapter.KoreanFilmViewHolder onCreateViewHolder(ViewGroup parent,
+        @Override@NonNull
+        public KoreanFilmsAdapter.KoreanFilmViewHolder onCreateViewHolder(@NonNull ViewGroup parent,
                                                                           int viewType) {
             View view =
                     LayoutInflater.from(mContext).inflate(R.layout.film_list_item, parent, false);
@@ -171,7 +169,7 @@ public class KoreanFilmsFragment extends Fragment implements SearchView.OnQueryT
         }
 
         @Override
-        public void onBindViewHolder(KoreanFilmsAdapter.KoreanFilmViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull KoreanFilmsAdapter.KoreanFilmViewHolder holder, int position) {
             final KoreanFilm item = getItem(position);
 
             // set title

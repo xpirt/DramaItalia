@@ -41,8 +41,8 @@ public class Utils implements Constants {
 
     public static boolean isNotEmpty(String input) {
         if (input != null) {
-            return !input.isEmpty() || !input.equals("") || !input.trim().isEmpty() ||
-                    !TextUtils.isEmpty(input) || !input.equals(System.getProperty("line.separator"));
+            return !input.isEmpty() || !input.equals("") || !TextUtils.isEmpty(input) ||
+                    !input.equals(System.getProperty("line.separator"));
         }
         return false;
     }

@@ -15,23 +15,11 @@ public class OtherFilm extends DramaFilm {
 
     public String getStatus() { return mStatus; }
 
-    public void setStatus(String input) {
-        mStatus = input;
-    }
-
     public String getType() {
         return mType;
     }
 
-    public void setType(String input) {
-        mType = input;
-    }
-
     public String getCountry() {
         return mCountry;
-    }
-
-    public void setCountry(String input) {
-        mCountry = input;
     }
 }

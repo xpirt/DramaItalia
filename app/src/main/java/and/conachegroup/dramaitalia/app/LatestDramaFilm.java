@@ -14,15 +14,7 @@ public class LatestDramaFilm {
 
     public int getId() { return mId; }
 
-    public void setId(int input) {
-        mId = input;
-    }
-
     public String getDate() { return mDate; }
 
-    public void setDate(String input) { mDate = input; }
-
     public String getTitle() { return mTitle; }
-
-    public void setTitle(String input) { mTitle = input; }
 }

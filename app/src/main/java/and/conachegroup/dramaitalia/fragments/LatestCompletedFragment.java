@@ -56,21 +56,19 @@ public class LatestCompletedFragment extends Fragment implements SearchView.OnQu
         mRecyclerView = view.findViewById(R.id.list);
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener(){
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
             }
 
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                if (recyclerView != null) {
-                    int topRowVerticalPosition = 0;
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                int topRowVerticalPosition = 0;
 
-                    if (recyclerView.getChildCount() != 0) {
-                        topRowVerticalPosition = recyclerView.getChildAt(0).getTop();
-                    }
-
-                    mSwipeLayout.setEnabled(topRowVerticalPosition >= 0);
+                if (recyclerView.getChildCount() != 0) {
+                    topRowVerticalPosition = recyclerView.getChildAt(0).getTop();
                 }
+
+                mSwipeLayout.setEnabled(topRowVerticalPosition >= 0);
             }
         });
         mRecyclerView.setHasFixedSize(true);
@@ -171,8 +169,8 @@ public class LatestCompletedFragment extends Fragment implements SearchView.OnQu
             mLatestCompletedList = latestCompletedList;
         }
 
-        @Override
-        public LatestCompletedAdapter.LatestCompletedViewHolder onCreateViewHolder(ViewGroup parent,
+        @Override @NonNull
+        public LatestCompletedAdapter.LatestCompletedViewHolder onCreateViewHolder(@NonNull ViewGroup parent,
                                                                                    int viewType) {
             View view = LayoutInflater.from(mContext).inflate(R.layout.latest_completed_list_item,
                     parent, false);
@@ -180,7 +178,7 @@ public class LatestCompletedFragment extends Fragment implements SearchView.OnQu
         }
 
         @Override
-        public void onBindViewHolder(LatestCompletedAdapter.LatestCompletedViewHolder holder,
+        public void onBindViewHolder(@NonNull LatestCompletedAdapter.LatestCompletedViewHolder holder,
                                      int position) {
             final LatestCompleted item = getItem(position);
 

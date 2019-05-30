@@ -13,15 +13,7 @@ public class KoreanDrama extends DramaFilm {
 
     public String getStatus() { return mStatus; }
 
-    public void setStatus(String input) {
-        mStatus = input;
-    }
-
     public String getType() {
         return mType;
-    }
-
-    public void setType(String input) {
-        mType = input;
     }
 }

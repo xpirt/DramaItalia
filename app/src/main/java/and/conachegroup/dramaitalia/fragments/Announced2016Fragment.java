@@ -56,20 +56,18 @@ public class Announced2016Fragment extends Fragment implements SearchView.OnQuer
         mRecyclerView = view.findViewById(R.id.list);
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener(){
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
             }
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                if (recyclerView != null) {
-                    int topRowVerticalPosition = 0;
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                int topRowVerticalPosition = 0;
 
-                    if (recyclerView.getChildCount() != 0) {
-                        topRowVerticalPosition = recyclerView.getChildAt(0).getTop();
-                    }
-
-                    mSwipeLayout.setEnabled(topRowVerticalPosition >= 0);
+                if (recyclerView.getChildCount() != 0) {
+                    topRowVerticalPosition = recyclerView.getChildAt(0).getTop();
                 }
+
+                mSwipeLayout.setEnabled(topRowVerticalPosition >= 0);
             }
         });
         mRecyclerView.setHasFixedSize(true);
@@ -170,8 +168,8 @@ public class Announced2016Fragment extends Fragment implements SearchView.OnQuer
             mAnnounced2016List = announced2016List;
         }
 
-        @Override
-        public Announced2016Adapter.Announced2016ViewHolder onCreateViewHolder(ViewGroup parent,
+        @Override @NonNull
+        public Announced2016Adapter.Announced2016ViewHolder onCreateViewHolder(@NonNull ViewGroup parent,
                                                                                    int viewType) {
             View view = LayoutInflater.from(mContext).inflate(R.layout.announced_list_item,
                     parent, false);
@@ -179,7 +177,7 @@ public class Announced2016Fragment extends Fragment implements SearchView.OnQuer
         }
 
         @Override
-        public void onBindViewHolder(Announced2016Adapter.Announced2016ViewHolder holder,
+        public void onBindViewHolder(@NonNull Announced2016Adapter.Announced2016ViewHolder holder,
                                      int position) {
             final Announced item = getItem(position);
 
