@@ -1,6 +1,5 @@
 package and.conachegroup.dramaitalia.tasks;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +9,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,24 +24,22 @@ public class Announced2016Task extends AsyncTask<Object, Void, List<Announced>>
 
     private static final String TAG = "Announced2016Task";
 
-    public Context mContext;
-    private Announced2016Fragment mAnnounced2016Fragment;
-    private RelativeLayout mLoading;
-    private RelativeLayout mError;
+    private WeakReference<Announced2016Fragment> mAnnounced2016Fragment;
+    private WeakReference<RelativeLayout> mLoading;
+    private WeakReference<RelativeLayout> mError;
 
-    public Announced2016Task(Context context, Announced2016Fragment announced2016Fragment,
+    public Announced2016Task(Announced2016Fragment announced2016Fragment,
                              RelativeLayout loading, RelativeLayout error) {
-        mContext = context;
-        mAnnounced2016Fragment = announced2016Fragment;
-        mLoading = loading;
-        mError  = error;
+        mAnnounced2016Fragment = new WeakReference<>(announced2016Fragment);
+        mLoading = new WeakReference<>(loading);
+        mError  = new WeakReference<>(error);
     }
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
 
-        mLoading.setVisibility(View.VISIBLE);
+        mLoading.get().setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -142,11 +140,11 @@ public class Announced2016Task extends AsyncTask<Object, Void, List<Announced>>
         if (result != null && !result.isEmpty()) {
             Log.d(TAG, "Document retrieved successfully!");
             if (mLoading != null) {
-                mLoading.setVisibility(View.GONE);
+                mLoading.get().setVisibility(View.GONE);
             }
-            mAnnounced2016Fragment.setupListView(result);
+            mAnnounced2016Fragment.get().setupListView(result);
         } else {
-            mError.setVisibility(View.VISIBLE);
+            mError.get().setVisibility(View.VISIBLE);
         }
 
         super.onPostExecute(result);

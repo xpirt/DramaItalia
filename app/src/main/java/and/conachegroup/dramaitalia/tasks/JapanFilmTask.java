@@ -1,6 +1,5 @@
 package and.conachegroup.dramaitalia.tasks;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +9,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,24 +24,22 @@ public class JapanFilmTask extends AsyncTask<Object, Void, List<JapanFilm>>
 
     private static final String TAG = "JapanFilmTask";
 
-    public Context mContext;
-    private JapanFilmsFragment mJapanFilmsFragment;
-    private RelativeLayout mLoading;
-    private RelativeLayout mError;
+    private WeakReference<JapanFilmsFragment> mJapanFilmsFragment;
+    private WeakReference<RelativeLayout> mLoading;
+    private WeakReference<RelativeLayout> mError;
 
-    public JapanFilmTask(Context context, JapanFilmsFragment japanFilmsFragment,
+    public JapanFilmTask(JapanFilmsFragment japanFilmsFragment,
                          RelativeLayout loading, RelativeLayout error) {
-        mContext = context;
-        mJapanFilmsFragment = japanFilmsFragment;
-        mLoading = loading;
-        mError  = error;
+        mJapanFilmsFragment = new WeakReference<>(japanFilmsFragment);
+        mLoading = new WeakReference<>(loading);
+        mError = new WeakReference<>(error);
     }
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
 
-        mLoading.setVisibility(View.VISIBLE);
+        mLoading.get().setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -116,11 +114,11 @@ public class JapanFilmTask extends AsyncTask<Object, Void, List<JapanFilm>>
         if (result != null && !result.isEmpty()) {
             Log.d(TAG, "Document retrieved successfully!");
             if (mLoading != null) {
-                mLoading.setVisibility(View.GONE);
+                mLoading.get().setVisibility(View.GONE);
             }
-            mJapanFilmsFragment.setupListView(result);
+            mJapanFilmsFragment.get().setupListView(result);
         } else {
-            mError.setVisibility(View.VISIBLE);
+            mError.get().setVisibility(View.VISIBLE);
         }
 
         super.onPostExecute(result);

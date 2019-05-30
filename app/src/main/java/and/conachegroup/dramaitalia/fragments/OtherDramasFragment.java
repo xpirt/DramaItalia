@@ -75,7 +75,7 @@ public class OtherDramasFragment extends Fragment implements SearchView.OnQueryT
         RelativeLayout error = view.findViewById(R.id.error);
 
         if (mRecyclerView.getAdapter() == null) {
-            new OtherDramaTask(mContext, this, loading, error)
+            new OtherDramaTask(this, loading, error)
                     .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         }
 

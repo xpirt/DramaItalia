@@ -1,6 +1,5 @@
 package and.conachegroup.dramaitalia.tasks;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import androidx.fragment.app.Fragment;
 import android.util.Log;
@@ -11,6 +10,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,24 +25,22 @@ public class JapanDramaTask extends AsyncTask<Fragment, Void, List<JapanDrama>>
 
     private static final String TAG = "JapanDramaTask";
 
-    public Context mContext;
-    private RelativeLayout mError;
-    private JapanDramasFragment mJapanDramasFragment;
-    private RelativeLayout mLoading;
+    private WeakReference<JapanDramasFragment> mJapanDramasFragment;
+    private WeakReference<RelativeLayout> mLoading;
+    private WeakReference<RelativeLayout> mError;
 
-    public JapanDramaTask(Context context, JapanDramasFragment japanDramasFragment,
+    public JapanDramaTask(JapanDramasFragment japanDramasFragment,
                           RelativeLayout loading, RelativeLayout error) {
-        mContext = context;
-        mJapanDramasFragment = japanDramasFragment;
-        mLoading = loading;
-        mError  = error;
+        mJapanDramasFragment = new WeakReference<>(japanDramasFragment);
+        mLoading = new WeakReference<>(loading);
+        mError = new WeakReference<>(error);
     }
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
 
-        mLoading.setVisibility(View.VISIBLE);
+        mLoading.get().setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -122,11 +120,11 @@ public class JapanDramaTask extends AsyncTask<Fragment, Void, List<JapanDrama>>
         if (result != null && !result.isEmpty()) {
             Log.d(TAG, "Document retrieved successfully!");
             if (mLoading != null) {
-                mLoading.setVisibility(View.GONE);
+                mLoading.get().setVisibility(View.GONE);
             }
-            mJapanDramasFragment.setupListView(result);
+            mJapanDramasFragment.get().setupListView(result);
         } else {
-            mError.setVisibility(View.VISIBLE);
+            mError.get().setVisibility(View.VISIBLE);
         }
 
         super.onPostExecute(result);

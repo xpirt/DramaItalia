@@ -76,7 +76,7 @@ public class JapanFilmsFragment extends Fragment implements SearchView.OnQueryTe
         RelativeLayout error = view.findViewById(R.id.error);
 
         if (mRecyclerView.getAdapter() == null) {
-            new JapanFilmTask(mContext, this, loading, error)
+            new JapanFilmTask(this, loading, error)
                     .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         }
 

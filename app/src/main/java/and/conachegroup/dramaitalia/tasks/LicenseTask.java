@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,24 +18,24 @@ public class LicenseTask extends AsyncTask<Object, Void, List<License>> {
 
     private static final String TAG = "LicenseTask";
 
-    private Context mContext;
-    private LicensesFragment mLicensesFragment;
-    private RelativeLayout mLoading;
-    private RelativeLayout mError;
+    private WeakReference<Context> mContext;
+    private WeakReference<LicensesFragment> mLicensesFragment;
+    private WeakReference<RelativeLayout> mLoading;
+    private WeakReference<RelativeLayout> mError;
 
     public LicenseTask(Context context, LicensesFragment licensesFragment,
                        RelativeLayout loading, RelativeLayout error) {
-        mContext = context;
-        mLicensesFragment = licensesFragment;
-        mLoading = loading;
-        mError = error;
+        mContext = new WeakReference<>(context);
+        mLicensesFragment = new WeakReference<>(licensesFragment);
+        mLoading = new WeakReference<>(loading);
+        mError = new WeakReference<>(error);
     }
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
 
-        mLoading.setVisibility(View.VISIBLE);
+        mLoading.get().setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -44,38 +45,38 @@ public class LicenseTask extends AsyncTask<Object, Void, List<License>> {
 
             // set volley
             licenses.add(new License(0,
-                    mContext.getString(R.string.volley_title),
-                    mContext.getString(R.string.volley_author),
-                    mContext.getString(R.string.volley_license),
-                    mContext.getString(R.string.volley_link)));
+                    mContext.get().getString(R.string.volley_title),
+                    mContext.get().getString(R.string.volley_author),
+                    mContext.get().getString(R.string.volley_license),
+                    mContext.get().getString(R.string.volley_link)));
 
             // set jsoup
             licenses.add(new License(1,
-                    mContext.getString(R.string.jsoup_title),
-                    mContext.getString(R.string.jsoup_author),
-                    mContext.getString(R.string.jsoup_license),
-                    mContext.getString(R.string.jsoup_link)));
+                    mContext.get().getString(R.string.jsoup_title),
+                    mContext.get().getString(R.string.jsoup_author),
+                    mContext.get().getString(R.string.jsoup_license),
+                    mContext.get().getString(R.string.jsoup_link)));
 
             // set taptargetview
             licenses.add(new License(2,
-                    mContext.getString(R.string.taptargetview_title),
-                    mContext.getString(R.string.taptargetview_author),
-                    mContext.getString(R.string.taptargetview_license),
-                    mContext.getString(R.string.taptargetview_link)));
+                    mContext.get().getString(R.string.taptargetview_title),
+                    mContext.get().getString(R.string.taptargetview_author),
+                    mContext.get().getString(R.string.taptargetview_license),
+                    mContext.get().getString(R.string.taptargetview_link)));
 
             // set materialdesignicons
             licenses.add(new License(3,
-                    mContext.getString(R.string.materialdesignicons_title),
-                    mContext.getString(R.string.materialdesignicons_author),
-                    mContext.getString(R.string.materialdesignicons_license),
-                    mContext.getString(R.string.materialdesignicons_link)));
+                    mContext.get().getString(R.string.materialdesignicons_title),
+                    mContext.get().getString(R.string.materialdesignicons_author),
+                    mContext.get().getString(R.string.materialdesignicons_license),
+                    mContext.get().getString(R.string.materialdesignicons_link)));
 
             // set materialdesignicons
             licenses.add(new License(4,
-                    mContext.getString(R.string.flaticon_title),
-                    mContext.getString(R.string.flaticon_author),
-                    mContext.getString(R.string.flaticon_license),
-                    mContext.getString(R.string.flaticon_link)));
+                    mContext.get().getString(R.string.flaticon_title),
+                    mContext.get().getString(R.string.flaticon_author),
+                    mContext.get().getString(R.string.flaticon_license),
+                    mContext.get().getString(R.string.flaticon_link)));
 
             return licenses;
         } catch (Exception e) {
@@ -89,11 +90,11 @@ public class LicenseTask extends AsyncTask<Object, Void, List<License>> {
         if (result != null && !result.isEmpty()) {
             Log.d(TAG, "Document retrieved successfully!");
             if (mLoading != null) {
-                mLoading.setVisibility(View.GONE);
+                mLoading.get().setVisibility(View.GONE);
             }
-            mLicensesFragment.setupListView(result);
+            mLicensesFragment.get().setupListView(result);
         } else {
-            mError.setVisibility(View.VISIBLE);
+            mError.get().setVisibility(View.VISIBLE);
         }
 
         super.onPostExecute(result);

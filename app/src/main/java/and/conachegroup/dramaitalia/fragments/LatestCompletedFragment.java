@@ -80,7 +80,7 @@ public class LatestCompletedFragment extends Fragment implements SearchView.OnQu
         RelativeLayout error = view.findViewById(R.id.error);
 
         if (mRecyclerView.getAdapter() == null) {
-            new LatestCompletedTask(mContext, this, loading, error)
+            new LatestCompletedTask(this, loading, error)
                     .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         }
 

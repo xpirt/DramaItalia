@@ -1,6 +1,5 @@
 package and.conachegroup.dramaitalia.tasks;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +9,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,24 +24,22 @@ public class LatestAnnouncedTask extends AsyncTask<Object, Void, List<Announced>
 
     private static final String TAG = "LatestAnnouncedTask";
 
-    public Context mContext;
-    private LatestAnnouncedFragment mLatestAnnouncedFragment;
-    private RelativeLayout mLoading;
-    private RelativeLayout mError;
+    private WeakReference<LatestAnnouncedFragment> mLatestAnnouncedFragment;
+    private WeakReference<RelativeLayout> mLoading;
+    private WeakReference<RelativeLayout> mError;
 
-    public LatestAnnouncedTask(Context context, LatestAnnouncedFragment latestAnnouncedFragment,
+    public LatestAnnouncedTask(LatestAnnouncedFragment latestAnnouncedFragment,
                                RelativeLayout loading, RelativeLayout error) {
-        mContext = context;
-        mLatestAnnouncedFragment = latestAnnouncedFragment;
-        mLoading = loading;
-        mError  = error;
+        mLatestAnnouncedFragment = new WeakReference<>(latestAnnouncedFragment);
+        mLoading = new WeakReference<>(loading);
+        mError = new WeakReference<>(error);
     }
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
 
-        mLoading.setVisibility(View.VISIBLE);
+        mLoading.get().setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -142,11 +140,11 @@ public class LatestAnnouncedTask extends AsyncTask<Object, Void, List<Announced>
         if (result != null && !result.isEmpty()) {
             Log.d(TAG, "Document retrieved successfully!");
             if (mLoading != null) {
-                mLoading.setVisibility(View.GONE);
+                mLoading.get().setVisibility(View.GONE);
             }
-            mLatestAnnouncedFragment.setupListView(result);
+            mLatestAnnouncedFragment.get().setupListView(result);
         } else {
-            mError.setVisibility(View.VISIBLE);
+            mError.get().setVisibility(View.VISIBLE);
         }
 
         super.onPostExecute(result);

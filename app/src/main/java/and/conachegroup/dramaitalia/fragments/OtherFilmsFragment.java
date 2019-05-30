@@ -51,21 +51,19 @@ public class OtherFilmsFragment extends Fragment implements SearchView.OnQueryTe
         mRecyclerView = view.findViewById(R.id.list);
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener(){
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
             }
 
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                if (recyclerView != null) {
-                    int topRowVerticalPosition = 0;
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                int topRowVerticalPosition = 0;
 
-                    if (recyclerView.getChildCount() != 0) {
-                        topRowVerticalPosition = recyclerView.getChildAt(0).getTop();
-                    }
-
-                    mSwipeLayout.setEnabled(topRowVerticalPosition >= 0);
+                if (recyclerView.getChildCount() != 0) {
+                    topRowVerticalPosition = recyclerView.getChildAt(0).getTop();
                 }
+
+                mSwipeLayout.setEnabled(topRowVerticalPosition >= 0);
             }
         });
         mRecyclerView.setHasFixedSize(true);
@@ -77,7 +75,7 @@ public class OtherFilmsFragment extends Fragment implements SearchView.OnQueryTe
         RelativeLayout error = view.findViewById(R.id.error);
 
         if (mRecyclerView.getAdapter() == null) {
-            new OtherFilmTask(mContext, this, loading, error)
+            new OtherFilmTask(this, loading, error)
                     .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         }
 
@@ -163,8 +161,8 @@ public class OtherFilmsFragment extends Fragment implements SearchView.OnQueryTe
             mOtherFilmList = otherFilmsList;
         }
 
-        @Override
-        public OtherFilmsAdapter.OtherFilmViewHolder onCreateViewHolder(ViewGroup parent,
+        @Override @NonNull
+        public OtherFilmsAdapter.OtherFilmViewHolder onCreateViewHolder(@NonNull ViewGroup parent,
                                                                         int viewType) {
             View view =
                     LayoutInflater.from(mContext).inflate(R.layout.film_list_item, parent, false);
@@ -172,7 +170,7 @@ public class OtherFilmsFragment extends Fragment implements SearchView.OnQueryTe
         }
 
         @Override
-        public void onBindViewHolder(OtherFilmsAdapter.OtherFilmViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull OtherFilmsAdapter.OtherFilmViewHolder holder, int position) {
             final OtherFilm item = getItem(position);
 
             // set title

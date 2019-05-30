@@ -79,7 +79,7 @@ public class Announced2017Fragment extends Fragment implements SearchView.OnQuer
         RelativeLayout error = view.findViewById(R.id.error);
 
         if (mRecyclerView.getAdapter() == null) {
-            new Announced2017Task(mContext, this, loading, error)
+            new Announced2017Task(this, loading, error)
                     .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         }
 

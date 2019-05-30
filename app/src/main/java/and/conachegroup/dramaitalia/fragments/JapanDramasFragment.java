@@ -76,7 +76,7 @@ public class JapanDramasFragment extends Fragment implements SearchView.OnQueryT
         RelativeLayout error = view.findViewById(R.id.error);
 
         if (mRecyclerView.getAdapter() == null) {
-            new JapanDramaTask(mContext, this, loading, error)
+            new JapanDramaTask(this, loading, error)
                     .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         }
 

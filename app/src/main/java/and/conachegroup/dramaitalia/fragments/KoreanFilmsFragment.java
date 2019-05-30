@@ -75,7 +75,7 @@ public class KoreanFilmsFragment extends Fragment implements SearchView.OnQueryT
         RelativeLayout error = view.findViewById(R.id.error);
 
         if (mRecyclerView.getAdapter() == null) {
-            new KoreanFilmTask(mContext, this, loading, error).execute();
+            new KoreanFilmTask(this, loading, error).execute();
         }
 
         return view;

@@ -79,7 +79,7 @@ public class LatestAnnouncedFragment extends Fragment implements SearchView.OnQu
         RelativeLayout error = view.findViewById(and.conachegroup.dramaitalia.R.id.error);
 
         if (mRecyclerView.getAdapter() == null) {
-            new LatestAnnouncedTask(mContext, this, loading, error)
+            new LatestAnnouncedTask(this, loading, error)
                     .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         }
 

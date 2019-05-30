@@ -74,7 +74,7 @@ public class LatestReleasedFragment extends Fragment implements SearchView.OnQue
         RelativeLayout error = view.findViewById(R.id.error);
 
         if (mRecyclerView.getAdapter() == null) {
-            new LatestReleasedTask(mContext, this, loading, error)
+            new LatestReleasedTask(this, loading, error)
                     .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         }
 

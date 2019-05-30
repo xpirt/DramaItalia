@@ -1,6 +1,5 @@
 package and.conachegroup.dramaitalia.tasks;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +9,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,24 +24,22 @@ public class OtherDramaTask extends AsyncTask<Object, Void, List<OtherDrama>>
 
     private static final String TAG = "OtherDramaTask";
 
-    public Context mContext;
-    private OtherDramasFragment mOtherDramasFragment;
-    private RelativeLayout mLoading;
-    private RelativeLayout mError;
+    private WeakReference<OtherDramasFragment> mOtherDramasFragment;
+    private WeakReference<RelativeLayout> mLoading;
+    private WeakReference<RelativeLayout> mError;
 
-    public OtherDramaTask(Context context, OtherDramasFragment otherDramasFragment,
+    public OtherDramaTask(OtherDramasFragment otherDramasFragment,
                           RelativeLayout loading, RelativeLayout error) {
-        mContext = context;
-        mOtherDramasFragment = otherDramasFragment;
-        mLoading = loading;
-        mError  = error;
+        mOtherDramasFragment = new WeakReference<>(otherDramasFragment);
+        mLoading = new WeakReference<>(loading);
+        mError  = new WeakReference<>(error);
     }
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
 
-        mLoading.setVisibility(View.VISIBLE);
+        mLoading.get().setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -124,11 +122,11 @@ public class OtherDramaTask extends AsyncTask<Object, Void, List<OtherDrama>>
         if (result != null && !result.isEmpty()) {
             Log.d(TAG, "Document retrieved successfully!");
             if (mLoading != null) {
-                mLoading.setVisibility(View.GONE);
+                mLoading.get().setVisibility(View.GONE);
             }
-            mOtherDramasFragment.setupListView(result);
+            mOtherDramasFragment.get().setupListView(result);
         } else {
-            mError.setVisibility(View.VISIBLE);
+            mError.get().setVisibility(View.VISIBLE);
         }
 
         super.onPostExecute(result);

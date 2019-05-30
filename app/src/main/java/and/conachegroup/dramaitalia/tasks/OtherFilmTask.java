@@ -1,6 +1,5 @@
 package and.conachegroup.dramaitalia.tasks;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +9,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,24 +24,22 @@ public class OtherFilmTask extends AsyncTask<Object, Void, List<OtherFilm>>
 
     private static final String TAG = "OtherFilmTask";
 
-    public Context mContext;
-    private OtherFilmsFragment mOtherFilmsFragment;
-    private RelativeLayout mLoading;
-    private RelativeLayout mError;
+    private WeakReference<OtherFilmsFragment> mOtherFilmsFragment;
+    private WeakReference<RelativeLayout> mLoading;
+    private WeakReference<RelativeLayout> mError;
 
-    public OtherFilmTask(Context context, OtherFilmsFragment otherFilmsFragment,
+    public OtherFilmTask(OtherFilmsFragment otherFilmsFragment,
                          RelativeLayout loading, RelativeLayout error) {
-        mContext = context;
-        mOtherFilmsFragment = otherFilmsFragment;
-        mLoading = loading;
-        mError  = error;
+        mOtherFilmsFragment = new WeakReference<>(otherFilmsFragment);
+        mLoading = new WeakReference<>(loading);
+        mError = new WeakReference<>(error);
     }
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
 
-        mLoading.setVisibility(View.VISIBLE);
+        mLoading.get().setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -124,11 +122,11 @@ public class OtherFilmTask extends AsyncTask<Object, Void, List<OtherFilm>>
         if (result != null && !result.isEmpty()) {
             Log.d(TAG, "Document retrieved successfully!");
             if (mLoading != null) {
-                mLoading.setVisibility(View.GONE);
+                mLoading.get().setVisibility(View.GONE);
             }
-            mOtherFilmsFragment.setupListView(result);
+            mOtherFilmsFragment.get().setupListView(result);
         } else {
-            mError.setVisibility(View.VISIBLE);
+            mError.get().setVisibility(View.VISIBLE);
         }
 
         super.onPostExecute(result);

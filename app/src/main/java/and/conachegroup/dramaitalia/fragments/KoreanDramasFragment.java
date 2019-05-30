@@ -76,7 +76,7 @@ public class KoreanDramasFragment extends Fragment implements SearchView.OnQuery
         RelativeLayout error = view.findViewById(R.id.error);
 
         if (mRecyclerView.getAdapter() == null) {
-            new KoreanDramaTask(mContext, this, loading, error)
+            new KoreanDramaTask(this, loading, error)
                     .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         }
 
