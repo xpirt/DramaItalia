@@ -94,7 +94,7 @@ public class Utils implements Constants {
             new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    document[0] = Jsoup.parse(response);
+                    document[0] = Jsoup.parse(response, BASE_URL);
                     countDownLatch.countDown();
                 }
             }, new Response.ErrorListener() {
